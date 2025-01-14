@@ -1,0 +1,31 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.local
+venv/
+__pycache__/
+
+# Build files
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Local development files
+*.log
+*.sqlite
