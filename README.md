@@ -2,7 +2,8 @@
 
 > Navigating the Convergence of DevOps, Security, and AI
 
-![DevOps Crossroads Banner](assets/banner.png)
+![DevOps Crossroads Logo](https://github.com/user-attachments/assets/ea7125aa-91cf-47bb-bd23-780ce83a6164)
+
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](your-linkedin-url)
 [![Medium](https://img.shields.io/badge/Medium-Follow-black.svg)](your-medium-url)
