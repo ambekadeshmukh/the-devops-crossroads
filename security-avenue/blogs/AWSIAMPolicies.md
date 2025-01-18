@@ -23,6 +23,8 @@ IAM policies are JSON documents that define permissions. They are the primary wa
 
 ## Types of IAM Policies
 
+![iampolicies](https://github.com/user-attachments/assets/85e5ee75-a44e-4e79-bf92-73ec45dd6633)
+
 AWS offers several types of IAM policies to provide flexible access control:
 
 ### 1. Identity-based Policies
@@ -43,7 +45,7 @@ AWS offers several types of IAM policies to provide flexible access control:
 
 A typical IAM policy document follows this structure:
 
-\```json
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -59,13 +61,13 @@ A typical IAM policy document follows this structure:
         }
     ]
 }
-\```
+```
 
 ## Common Use Cases
 
 ### 1. Read-Only Access to S3 Bucket
 
-\```json
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -82,11 +84,11 @@ A typical IAM policy document follows this structure:
         }
     ]
 }
-\```
+```
 
 ### 2. EC2 Instance Management
 
-\```json
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -106,7 +108,7 @@ A typical IAM policy document follows this structure:
         }
     ]
 }
-\```
+```
 
 ## Best Practices
 
