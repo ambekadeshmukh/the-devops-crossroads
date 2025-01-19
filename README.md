@@ -50,7 +50,7 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 - Automation Scripts
 - [View Code Projects](./code-junction/)
 
-## 📅 100 Days Challenge Progress
+## 📅 Progress
 
 ### Current Status
 - Days Completed: [Progress Bar]
