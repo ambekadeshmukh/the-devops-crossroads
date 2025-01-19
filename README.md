@@ -11,7 +11,7 @@
 
 ## 🗺️ Welcome to The Crossroads
 
-Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This repository documents my 100-day journey through the modern technology landscape, sharing insights, projects, and learnings along the way.
+Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This repository documents my journey through the modern technology landscape, sharing insights, projects, and learnings along the way.
 
 ## 🛣️ Main Routes
 
