@@ -67,8 +67,6 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 - More...
 </details>
 
-[Additional week details would follow...]
-
 ## 🎯 Project Structure
 
 ```
@@ -97,15 +95,12 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
    - Technologies used
    - Key outcomes
 
-[More projects would be listed as they're completed...]
-
 ## 📖 Featured Articles
 
 1. [Article Title](./link-to-article)
    - Key topics covered
    - Related projects
 
-[More articles would be listed as they're published...]
 
 ## 🔧 Technologies & Tools
 
