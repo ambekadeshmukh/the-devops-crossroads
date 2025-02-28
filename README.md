@@ -5,9 +5,9 @@
 ![DevOps Crossroads Logo](https://github.com/user-attachments/assets/ea7125aa-91cf-47bb-bd23-780ce83a6164)
 
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](your-linkedin-url)
-[![Medium](https://img.shields.io/badge/Medium-Follow-black.svg)](your-medium-url)
-[![Hashnode](https://img.shields.io/badge/Hashnode-Follow-blue.svg)](your-hashnode-url)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](www.linkedin.com/in/ambeka-deshmukh)
+[![Medium](https://img.shields.io/badge/Medium-Follow-black.svg)](https://medium.com/@thedevopscrossroads)
+[![Hashnode](https://img.shields.io/badge/Hashnode-Follow-blue.svg)](https://thedevopscrossroads.hashnode.dev)
 
 ## 🗺️ Welcome to The Crossroads
 
@@ -122,23 +122,6 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
 
-## 📫 Connect & Follow
 
-- LinkedIn: [Your LinkedIn Profile](your-linkedin-url)
-- Medium: [Your Medium Profile](your-medium-url)
-- Hashnode: [Your Hashnode Blog](your-hashnode-url)
-
-## 🤝 Contributing
-
-While this is a personal journey, I welcome discussions, suggestions, and insights! Feel free to:
-- Open issues for discussions
-- Suggest improvements
-- Share your experiences
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 <p align="center">Built with ❤️ at The DevOps Crossroads</p>
