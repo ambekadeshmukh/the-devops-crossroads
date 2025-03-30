@@ -1,0 +1,222 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'S3 Bucket Security Analyzer'
+
+Parameters:
+  NotificationEmail:
+    Type: String
+    Description: Email address to receive security alerts
+
+Resources:
+  # SNS Topic for alerts
+  SecurityAlertTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: S3 Security Alerts
+      TopicName: s3-security-alerts
+
+  # SNS Subscription
+  EmailSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Protocol: email
+      Endpoint: !Ref NotificationEmail
+      TopicArn: !Ref SecurityAlertTopic
+
+  # IAM Role for Lambda
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: S3SecurityAnalyzerPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:ListAllMyBuckets
+                  - s3:GetBucketPublicAccessBlock
+                  - s3:GetBucketEncryption
+                  - s3:GetBucketLogging
+                  - s3:GetBucketPolicy
+                Resource: '*'
+              - Effect: Allow
+                Action: sns:Publish
+                Resource: !Ref SecurityAlertTopic
+
+  # Lambda Function
+  S3SecurityAnalyzerFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: index.lambda_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Runtime: python3.9
+      Timeout: 300
+      Environment:
+        Variables:
+          SNS_TOPIC_ARN: !Ref SecurityAlertTopic
+      Code:
+        ZipFile: |
+          import boto3
+          import json
+          import os
+
+          def lambda_handler(event, context):
+              """
+              Lambda function to scan S3 buckets for security misconfigurations
+              """
+              # Initialize AWS clients
+              s3_client = boto3.client('s3')
+              sns_client = boto3.client('sns')
+              
+              # Get SNS topic ARN from environment variable
+              sns_topic_arn = os.environ['SNS_TOPIC_ARN']
+              
+              # Get list of all S3 buckets
+              response = s3_client.list_buckets()
+              buckets = [bucket['Name'] for bucket in response['Buckets']]
+              
+              security_issues = []
+              
+              # Check each bucket for security issues
+              for bucket_name in buckets:
+                  bucket_issues = check_bucket_security(s3_client, bucket_name)
+                  if bucket_issues:
+                      security_issues.append({
+                          'bucket': bucket_name,
+                          'issues': bucket_issues
+                      })
+              
+              # If issues found, send notification
+              if security_issues:
+                  message = format_security_issues(security_issues)
+                  sns_client.publish(
+                      TopicArn=sns_topic_arn,
+                      Subject='S3 Bucket Security Issues Detected',
+                      Message=message
+                  )
+                  
+                  return {
+                      'statusCode': 200,
+                      'body': json.dumps({
+                          'message': 'Security issues found and notification sent',
+                          'issues': security_issues
+                      })
+                  }
+              
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps({
+                      'message': 'No security issues found'
+                  })
+              }
+
+          def check_bucket_security(s3_client, bucket_name):
+              """
+              Check bucket for security misconfigurations
+              """
+              issues = []
+              
+              # Check for public access
+              try:
+                  public_access_block = s3_client.get_public_access_block(Bucket=bucket_name)
+                  block_config = public_access_block['PublicAccessBlockConfiguration']
+                  
+                  if not all([
+                      block_config['BlockPublicAcls'],
+                      block_config['BlockPublicPolicy'],
+                      block_config['IgnorePublicAcls'],
+                      block_config['RestrictPublicBuckets']
+                  ]):
+                      issues.append('Public access not fully blocked')
+              except s3_client.exceptions.NoSuchPublicAccessBlockConfiguration:
+                  issues.append('No public access block configuration')
+              except Exception as e:
+                  issues.append(f'Error checking public access: {str(e)}')
+              
+              # Check for encryption
+              try:
+                  encryption = s3_client.get_bucket_encryption(Bucket=bucket_name)
+                  # If we reach here, encryption is enabled
+              except s3_client.exceptions.ClientError:
+                  issues.append('Default encryption not enabled')
+              
+              # Check for bucket logging
+              try:
+                  logging = s3_client.get_bucket_logging(Bucket=bucket_name)
+                  if 'LoggingEnabled' not in logging:
+                      issues.append('Server access logging not enabled')
+              except Exception as e:
+                  issues.append(f'Error checking logging: {str(e)}')
+              
+              # Check bucket policy
+              try:
+                  policy = s3_client.get_bucket_policy(Bucket=bucket_name)
+                  policy_json = json.loads(policy['Policy'])
+                  
+                  # Simplified policy check
+                  for statement in policy_json.get('Statement', []):
+                      if statement.get('Effect') == 'Allow' and statement.get('Principal') == '*':
+                          issues.append('Bucket policy allows public access')
+              except s3_client.exceptions.NoSuchBucketPolicy:
+                  # No policy is not necessarily an issue
+                  pass
+              except Exception as e:
+                  issues.append(f'Error checking bucket policy: {str(e)}')
+              
+              return issues
+
+          def format_security_issues(security_issues):
+              """
+              Format security issues for SNS notification
+              """
+              message = "S3 Bucket Security Issues Detected\n\n"
+              
+              for item in security_issues:
+                  message += f"Bucket: {item['bucket']}\n"
+                  message += "Issues:\n"
+                  
+                  for issue in item['issues']:
+                      message += f"  - {issue}\n"
+                  
+                  message += "\n"
+              
+              message += "Please address these security issues as soon as possible."
+              
+              return message
+
+  # CloudWatch Event to trigger Lambda
+  ScheduledRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "Trigger S3 Security Analyzer daily"
+      ScheduleExpression: "rate(1 day)"
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt S3SecurityAnalyzerFunction.Arn
+          Id: "S3SecurityAnalyzer"
+
+  # Permission for CloudWatch Events to invoke Lambda
+  PermissionForEventsToInvokeLambda:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref S3SecurityAnalyzerFunction
+      Action: "lambda:InvokeFunction"
+      Principal: "events.amazonaws.com"
+      SourceArn: !GetAtt ScheduledRule.Arn
+
+Outputs:
+  LambdaFunction:
+    Description: "Lambda function for S3 Security Analyzer"
+    Value: !Ref S3SecurityAnalyzerFunction
+  SNSTopic:
+    Description: "SNS Topic for security alerts"
+    Value: !Ref SecurityAlertTopic
