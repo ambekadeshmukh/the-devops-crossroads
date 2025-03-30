@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"access_analyzer","Source":"./modules/access_analyzer","Dir":"modules/access_analyzer"},{"Key":"cloudwatch_dashboard","Source":"./modules/cloudwatch_dashboard","Dir":"modules/cloudwatch_dashboard"},{"Key":"config_rules","Source":"./modules/config_rules","Dir":"modules/config_rules"}]}
