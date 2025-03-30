@@ -1,6 +1,7 @@
 # S3 Bucket Security Analyzer
 
-![S3 Bucket Security Analyzer Architecture] (../../../../Downloads/s3-architecture-diagram.svg)
+![s3-architecture-diagram](https://github.com/user-attachments/assets/4f3dc1e7-4339-4972-8279-5b561ee67895)
+
 
 ## Project Description
 
@@ -42,7 +43,7 @@ The solution uses a serverless architecture with the following components:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/s3-bucket-security-analyzer.git
+   git clone https://github.com/yourusername/the-devops-crossroads.git
    cd s3-bucket-security-analyzer
    ```
 
