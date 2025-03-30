@@ -1,6 +1,5 @@
 # AWS IAM Access Analyzer Project
 
-> Part of the Security Avenue in the-devops-crossroads repository
 
 ## Overview
 
@@ -15,7 +14,8 @@ This project implements AWS IAM Access Analyzer to identify resources shared wit
 
 ## Architecture
 
-![Architecture Diagram](./architecture.png)
+![architecture-diagram](https://github.com/user-attachments/assets/89aaf8c9-c58e-4db0-adf6-e40a9b94748a)
+
 
 ## Prerequisites
 
@@ -46,6 +46,11 @@ This project implements AWS IAM Access Analyzer to identify resources shared wit
    - Check IAM Access Analyzer in AWS Console
    - View the CloudWatch Dashboard
    - Verify AWS Config rules are enabled
+  
+<img width="1787" alt="Screenshot 2025-03-29 at 11 29 38 PM" src="https://github.com/user-attachments/assets/978b589d-ed83-4c66-b0df-0b6042a5f121" />
+
+Note: This screenshot shows a freshly deployed dashboard. The "No data available" message is normal for new deployments before findings are generated.
+
 
 ## Understanding IAM Access Analyzer Findings
 
