@@ -2,7 +2,7 @@
 
 > Navigating the Convergence of DevOps, Security, and AI
 
-![DevOps Crossroads Logo](https://github.com/user-attachments/assets/ea7125aa-91cf-47bb-bd23-780ce83a6164)
+![The DevOps Crossroads Logo Design](https://github.com/user-attachments/assets/e9b6e9c0-6de9-4dc5-bc7e-d7b9559888c3)
 
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](www.linkedin.com/in/ambeka-deshmukh)
