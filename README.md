@@ -2,16 +2,16 @@
 
 > Navigating the Convergence of DevOps, Security, and AI
 
-![DevOps Crossroads Logo](https://github.com/user-attachments/assets/ea7125aa-91cf-47bb-bd23-780ce83a6164)
+![The DevOps Crossroads Logo Design](https://github.com/user-attachments/assets/e9b6e9c0-6de9-4dc5-bc7e-d7b9559888c3)
 
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](your-linkedin-url)
-[![Medium](https://img.shields.io/badge/Medium-Follow-black.svg)](your-medium-url)
-[![Hashnode](https://img.shields.io/badge/Hashnode-Follow-blue.svg)](your-hashnode-url)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](www.linkedin.com/in/ambeka-deshmukh)
+[![Medium](https://img.shields.io/badge/Medium-Follow-black.svg)](https://medium.com/@thedevopscrossroads)
+[![Hashnode](https://img.shields.io/badge/Hashnode-Follow-blue.svg)](https://thedevopscrossroads.hashnode.dev)
 
 ## 🗺️ Welcome to The Crossroads
 
-Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This repository documents my 100-day journey through the modern technology landscape, sharing insights, projects, and learnings along the way.
+Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This repository documents my journey through the modern technology landscape, sharing insights, projects, and learnings along the way.
 
 ## 🛣️ Main Routes
 
@@ -50,12 +50,12 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 - Automation Scripts
 - [View Code Projects](./code-junction/)
 
-## 📅 100 Days Challenge Progress
+## 📅 Progress
 
 ### Current Status
 - Days Completed: [Progress Bar]
-- Current Focus: [Current Project/Blog]
-- Latest Update: [Date]
+- Current Focus: AWS Security Projects
+- Latest Update: March 29, 2025
 
 ### Weekly Highlights
 <details>
@@ -67,7 +67,12 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 - More...
 </details>
 
-[Additional week details would follow...]
+<details>
+<summary>Recent Projects: AWS Security</summary>
+
+- [S3 Bucket Security Analyzer](./security-avenue/s3-bucket-security-analyzer/) - Automated tool to scan S3 buckets for security misconfigurations
+- [AWS IAM Access Analyzer](./security-avenue/aws-iam-access-analyzer/) - Solution for detecting overly permissive IAM policies with visualization
+</details>
 
 ## 🎯 Project Structure
 
@@ -75,6 +80,8 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 .
 ├── security-avenue/
 │   ├── projects/
+│   │   ├── s3-bucket-security-analyzer/
+│   │   └── aws-iam-access-analyzer/
 │   └── blogs/
 ├── ai-alley/
 │   ├── projects/
@@ -92,20 +99,28 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 
 ## 🚀 Featured Projects
 
-1. [Project Name](./link-to-project)
-   - Brief description
-   - Technologies used
-   - Key outcomes
+1. [S3 Bucket Security Analyzer](./security-avenue/s3-bucket-security-analyzer/)
+   - Automated security scanning for S3 buckets
+   - AWS Lambda, Amazon S3, Amazon SNS, CloudWatch Events
+   - Real-time security alerts for misconfigurations
 
-[More projects would be listed as they're completed...]
+2. [AWS IAM Access Analyzer](./security-avenue/aws-iam-access-analyzer/)
+   - Detection of overly permissive IAM policies
+   - Custom CloudWatch dashboard for security visualization
+   - Automated remediation through AWS Config rules
 
 ## 📖 Featured Articles
 
-1. [Article Title](./link-to-article)
-   - Key topics covered
-   - Related projects
+1. [Building an Automated S3 Bucket Security Analyzer in AWS](./security-avenue/blogs/s3-security-analyzer.md)
+   - Importance of S3 bucket security
+   - Common security misconfigurations
+   - Implementation details and lessons learned
 
-[More articles would be listed as they're published...]
+2. [Securing Your AWS Environment with IAM Access Analyzer](./security-avenue/blogs/iam-access-analyzer.md)
+   - IAM policy monitoring best practices
+   - Visualizing security findings with CloudWatch dashboards
+   - Automated remediation strategies
+
 
 ## 🔧 Technologies & Tools
 
@@ -113,6 +128,8 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white)
+![CloudFormation](https://img.shields.io/badge/CloudFormation-FF9900?style=flat&logo=amazon-aws&logoColor=white)
 
 ### Programming
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
@@ -121,24 +138,9 @@ Welcome to The DevOps Crossroads - where DevOps, Security, and AI converge. This
 ### DevOps & Security
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
+![IAM](https://img.shields.io/badge/IAM-FF9900?style=flat&logo=amazon-aws&logoColor=white)
+![Lambda](https://img.shields.io/badge/Lambda-FF9900?style=flat&logo=amazon-aws&logoColor=white)
 
-## 📫 Connect & Follow
 
-- LinkedIn: [Your LinkedIn Profile](your-linkedin-url)
-- Medium: [Your Medium Profile](your-medium-url)
-- Hashnode: [Your Hashnode Blog](your-hashnode-url)
-
-## 🤝 Contributing
-
-While this is a personal journey, I welcome discussions, suggestions, and insights! Feel free to:
-- Open issues for discussions
-- Suggest improvements
-- Share your experiences
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 <p align="center">Built with ❤️ at The DevOps Crossroads</p>
