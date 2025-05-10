@@ -1,0 +1,78 @@
+name: URL Shortener CI/CD
+
+on:
+  push:
+    paths:
+      - 'serverless-url-shortener/**'
+    branches: [ main ]
+  pull_request:
+    paths:
+      - 'serverless-url-shortener/**'
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./serverless-url-shortener
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
+    
+    - name: Install Dependencies
+      run: |
+        cd backend
+        npm ci
+        cd ../frontend
+        npm ci
+    
+    - name: Run Tests
+      run: |
+        cd backend
+        npm test
+        cd ../frontend
+        npm test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./serverless-url-shortener
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Deploy with SAM
+      run: |
+        cd infrastructure
+        sam build
+        sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
+
+    - name: Deploy Frontend
+      run: |
+        cd frontend
+        npm ci
+        npm run build
+        aws s3 sync dist/ s3://${{ secrets.FRONTEND_BUCKET }} --delete
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths "/*"
