@@ -4,7 +4,7 @@
 
 ![The DevOps Crossroads Logo Design](https://github.com/user-attachments/assets/e9b6e9c0-6de9-4dc5-bc7e-d7b9559888c3)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)]([www.linkedin.com/in/ambeka-deshmukh](https://www.linkedin.com/in/ambeka-deshmukh/))
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg)](https://www.linkedin.com/in/ambeka-deshmukh/))
 [![Medium](https://img.shields.io/badge/Medium-Follow-black.svg)](https://medium.com/@thedevopscrossroads)
 [![Hashnode](https://img.shields.io/badge/Hashnode-Follow-blue.svg)](https://thedevopscrossroads.hashnode.dev)
 
