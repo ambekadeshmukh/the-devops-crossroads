@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/cloud-projects/trivia-app/trivia-app"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    target-branch: "main"
+    labels:
+      - "dependencies"
+    versioning-strategy: "auto"
+
+  - package-ecosystem: "npm"
+    directory: "/cloud-projects/url-shortener/frontend"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    target-branch: "main"
+    labels:
+      - "dependencies"
+    versioning-strategy: "auto"
+
+  - package-ecosystem: "npm"
+    directory: "/cloud-projects/url-shortener/backend"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    target-branch: "main"
+    labels:
+      - "dependencies"
+    versioning-strategy: "auto"
