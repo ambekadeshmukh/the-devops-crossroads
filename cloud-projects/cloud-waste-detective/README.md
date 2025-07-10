@@ -70,6 +70,14 @@ The application includes realistic demo data showing $1,380 in annual savings op
 - 🟠 Unused storage: $460/year
 - 🟡 Undersized production: $207/year
 
+### Key Savings Categories
+
+| Resource Type | Annual Savings | Recommendation |
+|---------------|---------------|---------------|
+| Test Server   | $829          | Terminate unused |
+| Storage       | $460          | Cleanup unused data |
+| Production    | $207          | Right-size instance |
+
 ## 🏗️ Technical Architecture
 
 ```
@@ -84,70 +92,89 @@ The application includes realistic demo data showing $1,380 in annual savings op
 
 ### Components
 
-- Data Collectors: Multi-cloud resource discovery
-- Analysis Engine: ML-powered waste detection
-- Recommendation Engine: Actionable optimization suggestions
-- Dashboard: Real-time Streamlit interface
-- Integrations: Slack, Jira, Teams notifications
+- **Data Collectors**: Multi-cloud resource discovery
+- **Analysis Engine**: ML-powered waste detection
+- **Recommendation Engine**: Actionable optimization suggestions
+- **Dashboard**: Real-time Streamlit interface
+- **Integrations**: Slack, Jira, Teams notifications
 
 ## 🔧 Features
 
-✅ **Cost Optimization**
+### Cost Optimization
 
+✅ **Real-time Detection**
 - Real-time waste detection across all cloud providers
 - ML-powered usage pattern analysis
-Automated right-sizing recommendations
-Schedule optimization for dev/test environments
+- Automated right-sizing recommendations
+- Schedule optimization for dev/test environments
 
-✅ Business Intelligence
+### Business Intelligence
 
-Executive dashboards with ROI calculations
-Trend analysis and cost forecasting
-Department/team cost allocation
-Savings tracking and reporting
+✅ **Executive Insights**
+- Executive dashboards with ROI calculations
+- Trend analysis and cost forecasting
+- Department/team cost allocation
+- Savings tracking and reporting
 
-✅ Enterprise Integration
+### Enterprise Integration
 
-Slack notifications for immediate actions
-Jira ticket creation for optimization tasks
-Teams/Email alerts for stakeholders
-API endpoints for custom integrations
+✅ **Notifications & Automation**
+- Slack notifications for immediate actions
+- Jira ticket creation for optimization tasks
+- Teams/Email alerts for stakeholders
+- API endpoints for custom integrations
 
-✅ Governance & Compliance
+### Governance & Compliance
 
-SOC 2 / ISO 27001 compatible
-GDPR compliant (for EU deployments)
-Role-based access control
-Complete audit trails
+✅ **Security & Compliance**
+- SOC 2 / ISO 27001 compatible
+- GDPR compliant (for EU deployments)
+- Role-based access control
+- Complete audit trails
 
-📊 Demo Screenshots
-Main Dashboard
-Show Image
-Real-time cost analysis showing $1,380 annual savings opportunity
-Recommendations
-Show Image
-Actionable optimization suggestions with business impact
-🌐 Deployment Options
-Option 1: Streamlit Cloud (Free)
-bash# Push to GitHub
+## 📊 Demo Screenshots
+
+### Main Dashboard
+- Real-time cost analysis showing $1,380 annual savings opportunity
+- Resource utilization visualization
+- Savings opportunities dashboard
+
+### Recommendations View
+- Actionable optimization suggestions
+- Business impact analysis
+- Implementation guidance
+
+## 🌐 Deployment Options
+
+### Option 1: Streamlit Cloud (Free)
+```bash
+# Push to GitHub
 git add .
 git commit -m "Initial deployment"
 git push origin main
 
 # Deploy at: https://share.streamlit.io
-Option 2: Railway (Free Tier)
-bashrailway login
+```
+
+### Option 2: Railway (Free Tier)
+```bash
+railway login
 railway init
 railway up
-Option 3: Docker
-bashdocker build -t cloud-waste-detective .
-docker run -p 8501:8501 cloud-waste-detective
-📚 Documentation
+```
 
-🏗️ Architecture Guide
-🔧 Configuration Options
-🔌 API Documentation
-🚀 Deployment Guide
+### Option 3: Docker
+```bash
+docker build -t cloud-waste-detective .
+docker run -p 8501:8501 cloud-waste-detective
+```
+
+## 📚 Documentation
+
+- 🏗️ Architecture Guide
+- 🔧 Configuration Options
+- 🔌 API Documentation
+- 🚀 Deployment Guide
 
 🤝 Contributing
 We welcome contributions! See our Contributing Guide for details.
