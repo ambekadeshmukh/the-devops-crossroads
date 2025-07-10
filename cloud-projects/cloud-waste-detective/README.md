@@ -182,13 +182,13 @@ Development Setup
 bash# Install development dependencies
 pip install -r requirements-dev.txt
 
-# Run tests
+## Run tests
 pytest tests/
 
-# Run linting
+## Run linting
 flake8 src/
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License - see LICENSE file for details.
 
 
@@ -196,4 +196,3 @@ This project is licensed under the MIT License - see LICENSE file for details.
   <strong>Built with ❤️ for the DevOps Community</strong><br>
   <sub>Helping companies optimize cloud costs one resource at a time</sub>
 </p>
-```
