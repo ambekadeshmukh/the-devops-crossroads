@@ -160,17 +160,10 @@ pytest tests/
 
 # Run linting
 flake8 src/
+
 📄 License
 This project is licensed under the MIT License - see LICENSE file for details.
-🙋‍♂️ Support
 
-📧 Email: support@cloudwastedetective.com
-💬 Slack: Join our community
-🐛 Issues: GitHub Issues
-📖 Docs: Documentation Site
-
-🌟 Star History
-Show Image
 
 <p align="center">
   <strong>Built with ❤️ for the DevOps Community</strong><br>
