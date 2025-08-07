@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -16,32 +16,34 @@ function App() {
   const [history, setHistory] = useState<WeatherData[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+  const API_BASE = process.env.REACT_APP_API_URL || '';
 
-  const fetchWeather = async (cityName: string) => {
-    setLoading(true);
+  // Fetch latest weather for a city
+  const fetchHistory = useCallback(async () => {
     try {
-      const response = await axios.get(`${API_BASE}/api/weather/${cityName}`);
-      setWeather(response.data);
-      fetchHistory();
-    } catch (error) {
-      console.error('Error fetching weather:', error);
-    }
-    setLoading(false);
-  };
-
-  const fetchHistory = async () => {
-    try {
-      const response = await axios.get(`${API_BASE}/api/weather`);
+      const response = await axios.get<WeatherData[]>(`${API_BASE}/api/weather`);
       setHistory(response.data);
     } catch (error) {
       console.error('Error fetching history:', error);
     }
-  };
+  }, [API_BASE]);
+
+  const fetchWeather = useCallback(async (cityName: string) => {
+    setLoading(true);
+    try {
+      const response = await axios.get<WeatherData>(`${API_BASE}/api/weather/${cityName}`);
+      setWeather(response.data);
+      await fetchHistory();
+    } catch (error) {
+      console.error('Error fetching weather:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [API_BASE, fetchHistory]);
 
   useEffect(() => {
     fetchHistory();
-  }, []);
+  }, [fetchHistory]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,8 +80,8 @@ function App() {
 
         <div className="weather-history">
           <h3>Recent Searches</h3>
-          {history.map((item, index) => (
-            <div key={index} className="history-item">
+          {history.map((item) => (
+            <div key={item._id ?? `${item.city}-${item.timestamp}`} className="history-item">
               <strong>{item.city}</strong>: {item.temperature}°C - {item.description}
             </div>
           ))}
